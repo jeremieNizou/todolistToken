@@ -1,0 +1,16 @@
+.divBouton {
+	text-align: right;
+}
+
+#boutonRetour {
+	background-color: lightblue;
+	border-color: lightblue;
+}
+
+#tache {
+	text-decoration: bold;
+}
+
+#presentation {
+	margin-top: 30px;
+}

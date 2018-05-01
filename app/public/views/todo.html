@@ -1,0 +1,69 @@
+<div id="titre" class="divs">
+	<h1>Todo List</h1>
+</div>
+
+<div class="divs">
+	<div class="col-xs-1 col-sm-3 col-md-4 divBouton">
+		<button type="button" class="btn btn-primary" id="boutonRetour" onclick='location.href = "/todolist"'>
+		<span class="glyphicon glyphicon-arrow-left"></span>
+	</button>
+	</div>
+	<div class="col-xs-12 col-sm-6 col-md-4">
+		<div id="todoList" class="divs">
+			<div class="divs">
+				<div id="tache"><b>Tâche :</b></div>
+				<div ng-if="!editTodo">
+					<span>{{todo.nom}}</span>
+					<button class="pull-right" ng-click="modifierTodo()">Modifier</button>
+				</div>
+
+				<div ng-if="editTodo">
+					<form ng-submit="confirmerTodo(todo)" class="inlineBox inputForm">
+						<input value="{{todo.nom}}" focus-me="true" ng-model="changeTodo.nom" class="inputText">
+					</form>
+					<div class="inlineBox pull-right">
+						<button class="pull-left" ng-click="confirmerTodo(todo)">Confirmer</button>
+						<button class="pull-left" ng-click="modifierTodo()">Annuler</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="divs">
+				<div id="presentation"><b>Présentation :</b></div>
+				<div ng-if="presExiste">
+					<div ng-if="!editPres">
+						<span>{{todo.presentation}}</span>
+						<button class="pull-right" ng-click="modifierPres()">Modifier</button>
+					</div>
+
+					<div ng-if="editPres">
+						<form ng-submit="confirmerPres(todo)" class="inlineBox inputForm">
+							<input value="{{todo.presentation}}" focus-me="true" ng-model="changeTodo.presentation" class="inputText">
+						</form>
+						<div class="inlineBox pull-right">
+							<button class="pull-left" ng-click="confirmerPres(todo)">Confirmer</button>
+							<button class="pull-left" ng-click="modifierPres()">Annuler</button>
+						</div>
+					</div>
+				</div>
+
+				<div ng-if="!presExiste">
+					<div ng-if="!editPres">
+						<em>Aucune</em>
+						<button class="pull-right" ng-click="modifierPres()">&nbsp;Ajouter&nbsp;</button>
+					</div>
+
+					<div ng-if="editPres">
+						<form ng-submit="confirmerPres(todo)" class="inlineBox inputForm">
+							<input value="{{todo.presentation}}" focus-me="true" ng-model="changeTodo.presentation" class="inputText">
+						</form>
+						<div class="inlineBox pull-right">
+							<button class="pull-left" ng-click="confirmerPres(todo)">Confirmer</button>
+							<button class="pull-left" ng-click="modifierPres()">Annuler</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>  
+</div>

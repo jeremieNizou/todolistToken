@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>Todo MEAN</title>
+		<script src="/lib/angular/angular.min.js"></script>
+		<script src="/lib/angular/angular-sanitize.min.js"></script>
+		<script src="/lib/angular-route/angular-route.min.js"></script>
+		<script src="/lib/angular-animate/angular-animate.min.js"></script>
+		<script src="/lib/jquery/dist/jquery.min.js"></script>
+		<script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+		<link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+		<script src="/lib/ngStorage.js"></script>
+		<script src="/lib/loading-bar.js"></script>
+		<script src="/scripts/app.js"></script>
+		<script src="/scripts/directives/focusMe.js"></script>
+		
+		<script src="/scripts/services/todosAjax.js"></script>
+		<script src="/scripts/services/logAjax.js"></script>
+		<script src="/scripts/route.js"></script>
+
+		<script src="/scripts/controllers/login.js"></script>
+		<script src="/scripts/controllers/logout.js"></script>
+		<script src="/scripts/controllers/home.js"></script>
+		<script src="/scripts/controllers/profil.js"></script>
+		<script src="/scripts/controllers/todolist.js"></script>
+		<script src="/scripts/controllers/todo.js"></script>
+		<script src="/scripts/controllers/admin.js"></script>
+		
+
+		<link rel="stylesheet" type="text/css" href="/styles/todolist.css">
+		<link rel="stylesheet" type="text/css" href="/styles/todo.css">
+		<link rel="icon" href="favicon.ico">
+		
+		<base href="/">
+	</head>
+
+	<body ng-controller='app'>
+		{{isLogged}}
+		<ul class="nav">
+			<a class="nav-link active" href="/home" ng-if="log.isLogged">Home</a>
+			<a class="nav-link" href="/profil" ng-if="log.isLogged">My Profil</a>
+			<a class="nav-link" href="/todolist" ng-if="log.isLogged">Todolist</a>
+			<a class="nav-link disabled" href="/admin" ng-if="log.isAdmin">Admin</a>
+			<a class="nav-link disabled" href="/logout" ng-if="log.isLogged">Log out</a>
+		</ul>
+		<div ng-view></div>
+	</body>
+</html>
+

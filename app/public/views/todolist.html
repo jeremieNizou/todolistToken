@@ -1,0 +1,44 @@
+<div id="titre" class="divs">
+	<h1>Todo List</h1>
+</div>
+<div id="todoList" class="divs">
+	<div class="divs">
+		Rechercher : <input ng-model="recherche.nom">
+	</div>
+	<form ng-submit="ajouterItem(todo)">
+		<input placeholder="Que devez-vous faire ?" ng-model="todo.nom" class="todoItem" focus-me="true" required>
+	</form>
+
+	<div ng-repeat="item in list | filter: recherche" class="divFade divs">
+		<input type="checkbox" ng-model="selectionne[$index]" ng-click="changeSelectionIndex($index)">
+
+		<div ng-if="!edit[$index]" class="inlineBox choix">
+			<a ng-class="{selected: selectionne[$index]}" href="/todolist/{{item._id}}">{{item.nom}}</a>
+
+			<div class="inlineBox pull-right">
+				<button class="pull-left" ng-click="modifier($index)">Modifier</button>
+				<span class="pull-left supprime" ng-click="supprime(item, $index)">x</span>
+			</div>
+
+		</div>
+
+		<div ng-if="edit[$index]" class="inlineBox choix">
+			<form ng-submit="confirmer(item, $index)" class="inlineBox inputForm">
+				<input value="{{item.nom}}" focus-me="true" ng-model="changeTodo.nom" class="inputText">
+			</form>
+
+			<div class="inlineBox pull-right">
+				<button class="pull-left" ng-click="confirmer(item, $index)">Confirmer</button>
+				<button class="pull-left" ng-click="modifier($index)">Annuler</button>
+				<span class="supprime pull-left" ng-click="supprime(item, $index)">x</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="divs">
+		<input type="checkbox" ng-model="toutSelectionne" ng-click="changeSelectionTotal()">
+		<button ng-click="changeSelectionTotalBouton()" ng-if="!toutSelectionne">Tout Cocher</button>
+		<button ng-click="changeSelectionTotalBouton()" ng-if="toutSelectionne">Tout Décocher</button>
+		<button ng-click="supprimeToutSelectionne()">Supprimer la selection</button>
+	</div>
+</div>

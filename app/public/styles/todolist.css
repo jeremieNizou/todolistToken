@@ -1,0 +1,83 @@
+#titre {
+	text-align: center;
+}
+
+#todoList {
+	max-width: 400px;
+	min-width: 200px;
+	margin: auto;
+	border: 2px solid lightblue;
+	background-color: lightblue;
+	border-radius: 10px;
+}
+
+.divs {
+	padding: 5px;
+	margin: 5px;
+}
+
+.choix {
+	width: 90%;
+}
+
+.inlineBox {
+	display: inline-block;
+	padding: 0px;
+	margin: 0px;
+}
+
+.inlineBox button {
+	margin-right: 5px;
+}
+
+.inputText {
+	width: 100%;
+}
+
+.inputForm {
+	width: 35%;
+}
+
+.supprime {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.supprime:hover {
+	cursor: pointer;
+	font-weight: bold;
+	border: 1px solid black;
+	border-radius: 1000px;
+}
+
+.selected {
+	text-decoration: line-through;
+	font-style: italic;
+	color: #AAA;
+}
+
+.todoItem {
+	width: 100%;
+}
+
+
+
+.divFade.ng-enter {
+	transition:0.5s linear all;
+	opacity:0;
+	transform: translateX(50px);
+}
+.divFade.ng-enter.ng-enter-active {
+	opacity:1;
+	transform: translateX(0);
+}
+
+.divFade.ng-leave {
+	transition:0.5s linear all;
+	opacity:1;
+}
+.divFade.ng-leave.ng-leave-active {
+	opacity:0;
+}
+
+
